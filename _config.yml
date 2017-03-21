@@ -35,4 +35,4 @@ defaults:
       path: ""
       type: tips
     values:
-      layout: page
+      layout: practice

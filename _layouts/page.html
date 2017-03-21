@@ -9,11 +9,12 @@ layout: default
 
   {% assign posts=site.tips | where:"title", page.title | sort: 'language' %}
   <div class="variants">
-    {% for post in posts %}
-      <li>
-        <a href="{{ post.url }}" class="{{ post.language }}">{{ post.language }}</a>
-      </li>
-    {% endfor %}
+    <lu>
+        {% for post in posts %}
+            <li><a href="{{ post.url }}" class="{{ post.language }}">{{ post.language }}</a></li>
+        {% endfor %}
+        <li><a href="/add-your-language">Add your language</a></li>
+    </lu>
   </div>
 
   <div class="post-content">

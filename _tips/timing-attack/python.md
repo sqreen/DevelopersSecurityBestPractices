@@ -43,7 +43,19 @@ SCHEMA
 
 The difference can feels negligible and it's indeed very small but statistics dictates that every small difference can be detected with enough measures. Moreover network jitter is more and more precisely modeled and can be removed from measures over internet. According to [one of the reference paper on the subject](http://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf), "We have shown that, even though the Internet induces significant timing jitter, we can reliably distinguish remote timing differences as low as 20µs".
 
+String comparison is not vulnerable when comparing hashes, not direct user inputs. As hashes fonction are not reversible, knowing that the generated hash first character is the same as the expected one don't give a clue to the cleartext value that the attacker needs to provide.
+
 # Not vulnerable code
+
+The solution to avoid this problem is to compare the two strings in a way that is not dependent to the size of the strings, the algorithm need to take the same amount of time. It's called constant time string comparison.
+
+To do this successfully you must:
+
+ - Compare all of the characters before returning true or false.
+    - returning early will leak information
+ - Compare strings of equal length
+    - if one string is longer or shorter, you'll return early and leak information about string length
+
 
 Django provides a function [`constant_time_compare`](constant_time_compare) that can be used to securely check two strings.
 

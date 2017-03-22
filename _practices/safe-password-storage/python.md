@@ -28,7 +28,7 @@ The problem is that md5 is very quick to compute, `hashlib.md5('my_safe_password
 from passlib.hash import pbkdf2_sha256
 
 def hash_password(password):
-    
+
 ```
 
 
@@ -36,6 +36,10 @@ def hash_password(password):
 
 # Not vulnerable code
 
+If you are using Django, just follow the [Django tutorial](https://docs.djangoproject.com/en/1.10/topics/auth/passwords/) and use standard Django password hashers.
+
 # Example of attack
 
 ## References:
+
+- [https://blogs.dropbox.com/tech/2016/09/how-dropbox-securely-stores-your-passwords/](https://blogs.dropbox.com/tech/2016/09/how-dropbox-securely-stores-your-passwords/)

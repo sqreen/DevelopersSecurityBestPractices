@@ -27,12 +27,12 @@ exclude:
   - Gemfile.lock
   - _tips/timing-attack/_python/
 collections:
-  tips:
+  practices:
     output: true
     permalink: /:path
 defaults:
   - scope:
       path: ""
-      type: tips
+      type: practices
     values:
       layout: practice

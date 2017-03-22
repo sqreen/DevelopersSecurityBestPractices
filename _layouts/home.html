@@ -9,7 +9,7 @@ layout: default
   {{ content }}
 
   <ul class="post-list">
-    {% for post in site.tips %}
+    {% for post in site.practices %}
       <li>
         <h2>
           <a class="post-link" href="{{ post.url | relative_url }}"><i class="icon-{{post.language}}"></i> {{ post.title | escape }}</a>

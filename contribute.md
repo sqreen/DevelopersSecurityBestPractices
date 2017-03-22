@@ -8,10 +8,10 @@ It's very easy to contribute to the database of good practices.
 
 # File architecture
 
-The actual content is in the directory `_tips`. Inside you have one directory for each practice. Inside you have a file named `LANGUAGE.md` for each language. You also have a directory named `_LANGUAGE` per language.
+The actual content is in the directory `_practices`. Inside you have one directory for each practice. Inside you have a file named `LANGUAGE.md` for each language. You also have a directory named `_LANGUAGE` per language.
 
 ```
-_tips
+_practices
 └── timing-attack
     ├── _python
     │   ├── app.py

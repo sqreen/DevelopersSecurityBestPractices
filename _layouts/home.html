@@ -12,7 +12,7 @@ layout: default
     {% for post in site.tips %}
       <li>
         <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{post.language}}  {{ post.title | escape }}</a>
+          <a class="post-link" href="{{ post.url | relative_url }}"><i class="icon-{{post.language}}"></i> {{ post.title | escape }}</a>
         </h2>
       </li>
     {% endfor %}

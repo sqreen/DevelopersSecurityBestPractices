@@ -1,6 +1,6 @@
 ---
 title: Timing Attacks against String Comparison
-language: node
+language: nodejs
 ---
 
 Timing Attacks are a particular type of attacks that use flaws in code that impact the execution time.

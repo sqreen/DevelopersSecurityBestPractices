@@ -11,7 +11,7 @@ layout: default
   <div class="variants">
     <lu>
         {% for post in posts %}
-            <li><a href="{{ post.url }}" class="{{ post.language }}">{{ post.language }}</a></li>
+            <li><a href="{{ post.url }}" class="{{ post.language }}"><i class="icon-{{post.language}}"></i> {{ post.language }}</a></li>
         {% endfor %}
         <li><a href="/add-your-language">Add your language</a></li>
     </lu>

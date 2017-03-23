@@ -1,10 +1,15 @@
 import argparse
 import hashlib
-import django.contrib.auth.hashers
+import random
 
 import faker
+import django.contrib.auth.hashers
+
 
 FAKE = faker.Factory.create()
+
+with open("password.list") as file:
+    PASSWORDS = [line.strip() for line in file.readlines()]
 
 
 def remove_pepper(encoded, pepper):
@@ -35,7 +40,7 @@ class MD5Hasher(object):
         encoded = self.django_hasher.encode(password, self.pepper + salt)
         # Replace 'md5$' by '$1$'
         _, salt, passwd = encoded.split('$')
-        return '$dynamic_4$%s$%s' % (passwd, remove_pepper(salt))
+        return '$dynamic_4$%s$%s' % (passwd, remove_pepper(salt, self.pepper))
 
     def jtr_format(self):
         if self.salt is None:
@@ -50,7 +55,7 @@ class BCryptHasher(object):
         self.django_hasher = django.contrib.auth.hashers.BCryptPasswordHasher()
 
         if rounds:
-            self.django_hasher.rounds = rounds
+            self.django_hasher.iterations = rounds
 
         self.global_salt = self.django_hasher.salt()
 
@@ -81,7 +86,7 @@ class PBKDF2Hasher(object):
         self.django_hasher = django.contrib.auth.hashers.PBKDF2PasswordHasher()
 
         if rounds:
-            self.django_hasher.rounds = rounds
+            self.django_hasher.iterations = rounds
 
         self.global_salt = self.django_hasher.salt()
 
@@ -109,14 +114,16 @@ def get_hasher(algorithm, salt, pepper, rounds):
     if algorithm == 'md5':
         return MD5Hasher(salt, pepper, rounds)
     elif algorithm == 'bcrypt':
-        return BCryptHasher(salt, pepper, 4)
+        return BCryptHasher(salt, pepper, rounds)
     elif algorithm == 'pbkdf2':
-        return PBKDF2Hasher(salt, pepper, 1)
+        return PBKDF2Hasher(salt, pepper, rounds)
+    else:
+        raise NotImplementedError("Bad algorithm %s" % algorithm)
 
 
 def main():
     parser = argparse.ArgumentParser(description='Generate username / password list for john the ripper')
-    parser.add_argument('algorithm', help='which algorithm to use')
+    parser.add_argument('algorithm', help='which algorithm to use (md5, bcrypt or pbkdf2)')
     parser.add_argument('--salt', help='which kind of salt to use (none, same, user)')
     parser.add_argument('--pepper', default='', help='a pepper')
     parser.add_argument('--rounds', type=int, help='Number of rounds to use')
@@ -125,13 +132,24 @@ def main():
 
     hasher = get_hasher(args.algorithm, args.salt, args.pepper, args.rounds)
 
-    for i in range(args.n):
-        username = FAKE.profile(fields='username')['username']
-        row_password = '123456'
-        password = hasher.encode(row_password)
-        print("%s:%s" % (username, password))
+    msg=  "Generating %s usernames/password with algorithm %r with salt %r [%r rounds] and pepper %r\n"
 
-    print("You can crack it with `john --format=%s passwd`" % hasher.jtr_format())
+    if args.rounds is None:
+        if hasattr(hasher.django_hasher, 'iterations'):
+            args.rounds = hasher.django_hasher.iterations
+        else:
+            args.rounds = 0
+
+    print(msg % (args.n, args.algorithm, args.salt, args.rounds, args.pepper))
+    with open('passwd', 'w') as output_file:
+        for i in range(args.n):
+            username = FAKE.profile(fields='username')['username']
+            password = hasher.encode(random.choice(PASSWORDS))
+            print("%s:%s" % (username, password))
+            output_file.write("%s:%s\n" % (username, password))
+
+    print("\nOutput also write in file `passwd`")
+    print("You can crack it with `john --wordlist=password.list --format=%s passwd`" % hasher.jtr_format())
 
 if __name__ == '__main__':
     main()

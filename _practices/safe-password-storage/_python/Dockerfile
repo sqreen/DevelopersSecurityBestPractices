@@ -9,9 +9,7 @@ RUN cd john/src && ./configure && make -s clean && make -sj4
 RUN /john/run/john --test=0
 ENV PATH /john/run:$PATH
 ADD ./john.ini /john.ini
-
-VOLUME ./john $HOME/.john
-VOLUME ./wordlist /wordlist
+ADD ./password.list /password.list
 
 # Install enough python to generate passwords
 RUN apt-get -y update && apt-get -y install python python-pip

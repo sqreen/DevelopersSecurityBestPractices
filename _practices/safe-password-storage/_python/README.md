@@ -1,6 +1,14 @@
-We have provided a script to generate some data in a format accept by [John The Ripper](http://www.openwall.com/john/). You can use it to generate password hashing by varying some parameters and see the impact it haves on the time needed to crack them.
+We have provided a script to generate some data in a format accept by [John The Ripper](http://www.openwall.com/john/). You can use it to generate password hashing by varying some parameters and see the impact it haves on the time needed to crack them. It uses internaly the Django default password hashers, so the hashes are "real". They have the same default settings as Django and can be cracked as fast as real ones.
 
 It pick a random password from a wordlist named `password.list` so it's the worst case scenario as the password cracker also have access to the password list. The basic list is quite small (~3000 passwords), if you want to have a more realistic scenario, replace `password.list` by [one of password list downloaded here](https://wiki.skullsecurity.org/Passwords).
+
+Here are some examples of run with MD5, BCrypt and PBKDF2:
+
+<script type="text/javascript" src="https://asciinema.org/a/108744.js" id="asciicast-108744" async></script>
+
+<script type="text/javascript" src="https://asciinema.org/a/22i2kv418lq0l1sqq2k5co0u7.js" id="asciicast-22i2kv418lq0l1sqq2k5co0u7" async></script>
+
+<script type="text/javascript" src="https://asciinema.org/a/bm2khn89dv6qjb5fzspgzy7b7.js" id="asciicast-bm2khn89dv6qjb5fzspgzy7b7" async></script>
 
 ### Generate some data locally
 

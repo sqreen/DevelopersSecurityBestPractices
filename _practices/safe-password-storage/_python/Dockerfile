@@ -16,3 +16,4 @@ RUN apt-get -y update && apt-get -y install python python-pip
 RUN pip install -U pip
 ADD requirements.txt /
 RUN pip install -r requirements.txt
+ADD generate_data.py /

@@ -63,12 +63,7 @@ The python standard lib also provides the function [`hmac.compare_digest`](https
 
 # Example of attack
 
-We have provided an example of a vulnerable python web application that checks the token against a hard-coded value.
-
-We also provide a script to remotely try to exploit the timing attack. Don't use this script against a non-owned application.
-
-The script is not good enough to perform a real attack, the application has been made more vulnerable by adding a sleep during the string comparison.
-
+{% include_relative _python/README.md %}
 
 ## References:
 

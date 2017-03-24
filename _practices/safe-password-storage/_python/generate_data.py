@@ -42,6 +42,10 @@ class MD5Hasher(object):
         _, salt, passwd = encoded.split('$')
         return '$dynamic_4$%s$%s' % (passwd, remove_pepper(salt, self.pepper))
 
+    @property
+    def iterations(self):
+        return 1
+
     def jtr_format(self):
         if self.salt is None:
             return 'Raw-MD5'
@@ -55,7 +59,7 @@ class BCryptHasher(object):
         self.django_hasher = django.contrib.auth.hashers.BCryptPasswordHasher()
 
         if rounds:
-            self.django_hasher.iterations = rounds
+            self.django_hasher.rounds = rounds
 
         self.global_salt = self.django_hasher.salt()
 
@@ -75,6 +79,10 @@ class BCryptHasher(object):
             encoded = self.django_hasher.encode(password, self.pepper + self.django_hasher.salt())
             # Replace 'md5$' by '$1$'
             return encoded[7:]
+
+    @property
+    def iterations(self):
+        return self.django_hasher.rounds
 
     def jtr_format(self):
         return 'bcrypt'
@@ -106,6 +114,10 @@ class PBKDF2Hasher(object):
             # Replace 'md5$' by '$1$'
             return "$django$*1*" + encoded
 
+    @property
+    def iterations(self):
+        return self.django_hasher.iterations
+
     def jtr_format(self):
         return 'Django'
 
@@ -132,15 +144,8 @@ def main():
 
     hasher = get_hasher(args.algorithm, args.salt, args.pepper, args.rounds)
 
-    msg=  "Generating %s usernames/password with algorithm %r with salt %r [%r rounds] and pepper %r\n"
-
-    if args.rounds is None:
-        if hasattr(hasher.django_hasher, 'iterations'):
-            args.rounds = hasher.django_hasher.iterations
-        else:
-            args.rounds = 0
-
-    print(msg % (args.n, args.algorithm, args.salt, args.rounds, args.pepper))
+    msg = "Generating %s usernames/password with algorithm %r with salt %r [%r rounds] and pepper %r\n"
+    print(msg % (args.n, args.algorithm, args.salt, hasher.iterations, args.pepper))
     with open('passwd', 'w') as output_file:
         for i in range(args.n):
             username = FAKE.profile(fields='username')['username']

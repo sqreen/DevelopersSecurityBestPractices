@@ -106,6 +106,8 @@ If you are not using Django, you can use [passlib](https://pypi.python.org/pypi/
 
 # Example of attack
 
+{% include_relative _python/README.md %}
+
 ## References:
 
 - [https://blogs.dropbox.com/tech/2016/09/how-dropbox-securely-stores-your-passwords/](https://blogs.dropbox.com/tech/2016/09/how-dropbox-securely-stores-your-passwords/)

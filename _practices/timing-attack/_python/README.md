@@ -1,8 +1,6 @@
-# Timing attack against string comparison in Python
+We have provided a sample python web application coded in Flask that check authorization token in a timing attack vulnerable way. You can also find a script that will exploit this vulnerability to retrieve the expected token.
 
-In this directory you will find a sample python web application coded in Flask that check authorization token in a timing attack vulnerable way. You can also find a script that will exploit this vulnerability to retrieve the expected token.
-
-## Run the web application
+### Run the web application
 
 In order to run the web application, create a virtualenv:
 
@@ -26,7 +24,7 @@ gunicorn -w 1 app:app
 
 The web application expects to receive the token named `SECRET_TOKEN` in `app.py` in the header named `X-TOKEN`. If the header match the hardcoded one, it returns a `200 OK` status code, else it returns a `403 Forbidden`.
 
-## Hack the web application
+### Hack the web application
 
 In order to run the script to hack the web application, create a virtualenv:
 
@@ -47,7 +45,7 @@ Finally, launch it with:
 python hack.py
 ```
 
-## Customize
+### Customize
 
 You can change the hardcoded token in `app.py` to validate that the script is effectively working.
 

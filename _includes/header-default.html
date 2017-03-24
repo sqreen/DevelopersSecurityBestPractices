@@ -1,0 +1,17 @@
+<header class="header-site" role="banner">
+    <div class="content">
+
+        <ul class="recent">
+            <p>Recent practices:</p>
+             {% for post in site.practices %}
+                <li>
+                    <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
+                        <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> {{ post.title }}</h2>
+                    </a>
+                </li>
+              {% endfor %}
+        </ul>
+
+    </div>
+    {% include menu-search.html %}
+</header>

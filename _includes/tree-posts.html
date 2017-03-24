@@ -1,0 +1,17 @@
+<div class="tree-posts">
+
+    <h3>*TOC*</h3>
+
+    {% for post in site.practices %}
+
+    <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+        <div class="content">
+            <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+                <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> {{ post.title | replace: ' ','-'}}</h2>
+            </a>
+        </div>
+    </article>
+
+    {% endfor %}
+
+</div>

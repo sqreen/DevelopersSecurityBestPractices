@@ -25,7 +25,9 @@ markdown: kramdown
 exclude:
   - Gemfile
   - Gemfile.lock
-  - _tips/timing-attack/_python/
+  - package.json
+  - src
+  - node_modules
 collections:
   practices:
     output: true

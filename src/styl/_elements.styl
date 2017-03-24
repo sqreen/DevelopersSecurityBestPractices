@@ -1,0 +1,43 @@
+.tags
+    margin-top rem(30px)
+    a
+        font-size rem(14px)
+        color main
+        display inline-block
+        border 1px solid main
+        border-radius rem(5px)
+        padding rem(4px) rem(10px)
+        margin-right rem(2px)
+        margin-bottom rem(8px)
+        text-decoration none
+        &:hover
+            color hover
+            border 1px solid hover
+
+.img-rounded
+    border-radius 50%
+
+.aboutme
+    .recent
+        list-style none
+    .post-title
+        &:before
+            content ""
+    h2
+        &:hover
+            background-color mainHover
+    li
+      h3
+        font-size rem(20px)
+        margin-bottom 7px
+        position relative
+        &:before
+          content "|>"
+          font-size rem(20px)
+          color black
+          position absolute
+          left -10px
+          transition all .2s
+        &:hover
+          &:before
+            transform translateX(-10px)

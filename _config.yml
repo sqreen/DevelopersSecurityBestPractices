@@ -28,6 +28,7 @@ exclude:
   - package.json
   - src
   - node_modules
+  - vendor
 collections:
   practices:
     output: true

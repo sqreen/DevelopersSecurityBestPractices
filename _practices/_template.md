@@ -1,6 +1,6 @@
 ---
 title: Sample
-language: Python
+language: python
 ---
 
 Quick explanation goes here
@@ -14,5 +14,7 @@ Quick explanation goes here
 # Not vulnerable code
 
 # Example of attack
+
+{% include_relative _python/README.md %}
 
 ## References:

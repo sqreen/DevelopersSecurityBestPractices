@@ -13,7 +13,7 @@ hashing password, use a salt per user.
 
 # Vulnerable code
 
-Storing password in clear-text is a bad idea. The recommandation is to hash them. What about this?
+It’s universally acknowledged that it’s a bad idea to store plain-text passwords. The recommandation is to hash them. Here are some examples of **WHAT TO NOT DO**.
 
 ```python
 from hashlib import md5
@@ -41,11 +41,11 @@ All theses examples are vulnerable, see below why.
 
 # Vulnerability explanation
 
-The goal to the safe password storage practice is to protect your customers password in case an attacker put hands on it. If it's the case, you would prefer he would take several dozens of years to crack most of you password instead of few seconds.
+The goal of storing safely your customers password is to harden the work for an attacker if he can do a dump of your database. If it's the case, you would prefer he would take several dozens of years to crack most of you password instead of few seconds.
 
 ## Hash functions
 
-A [Hash function](https://en.wikipedia.org/wiki/Hash_function) is any function that can be used to map data of arbitrary size to data of fixed size. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. - Wikipedia
+> A [Hash function](https://en.wikipedia.org/wiki/Hash_function) is any function that can be used to map data of arbitrary size to data of fixed size. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. - Wikipedia
 
 They have the property that every data (string, bytes, ...) will always give the same hash.
 
@@ -93,7 +93,7 @@ Checking back the report, with bcrypt, we are down to 105 thousand hash per seco
 
 All these good practices have the objective to slow down an hacker that would have access to your database passwords and try to crack them. There is two complimentary solutions:
 
-- Force users to use strong passwords, they are much much harder to crack, check out this website to see the [complexity of different password](https://howsecureismypassword.net/). `password` is marked as cracked instantly while `uFLXW7UZ2J5L1ICTatzQ` would take 558 QUADRILLION YEARS.
+- Force users to use strong passwords, they are much much harder to crack, check out this website to see the [complexity of different password](https://howsecureismypassword.net/). `password` is marked as cracked instantly while `uFLXW7UZ2J5L1ICTatzQ` would take **558 QUADRILLION YEARS.**
 - Use a cryptographic pepper. A pepper is added to the password and the salt before hashing. The big difference is that the pepper is **NOT** stored in the database but somewhere else safe. This way if an attacker access your database, he would need to bruteforce the pepper + the password which would be infeasible.
 
 And don't remember, don't write your own hashing function or compose them without knowing. No `md5(md5('password') + 's')` is not inherently safer.

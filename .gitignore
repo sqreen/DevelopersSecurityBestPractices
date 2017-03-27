@@ -2,4 +2,4 @@ _site
 .sass-cache
 .jekyll-metadata
 *.pyc
-
+**/.DS_Store

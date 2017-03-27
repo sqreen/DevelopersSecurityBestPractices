@@ -1,6 +1,6 @@
 <div class="tree-posts">
 
-    <h3>*Variants*</h3>
+    <h3>Variants</h3>
 
     {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
 
@@ -9,7 +9,7 @@
     <article role="article" class="post-item">
         <div class="content">
             <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> {{ post.title }}</h2>
+                <h2 class="post-title" itemprop="name"><i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ post.title }}</h2>
             </a>
         </div>
     </article>
@@ -19,7 +19,7 @@
     <article role="article" class="post-item">
         <div class="content">
             <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> Add your language</h2>
+                <h2 class="post-title" itemprop="name"><i class="fa fa-code fa-fw" aria-hidden="true"></i> Add your language</h2>
             </a>
         </div>
     </article>

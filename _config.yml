@@ -18,6 +18,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Code Condoms is a bullshit-free, developers friendly, open-source reference of best practices
   for avoiding vulnerabilities.
 url: "https://sqreen.github.io/DevelopersSecurityBestPractices/"
+github_url: "https://github.com/sqreen/DevelopersSecurityBestPractices"
 
 # Build settings
 markdown: kramdown

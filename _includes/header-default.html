@@ -8,7 +8,7 @@
         <div class="tags">
             <ul class="recent">
                 {% if page.language %}
-                    <p>Practices only for: {{ page.title }}</p>
+                    <p>Practices only for: <i class="icon-{{page.language}}"></i> {{ page.title }}</p>
                 {% else %}
                     <p>Filter by language:</p>
                 {% endif %}

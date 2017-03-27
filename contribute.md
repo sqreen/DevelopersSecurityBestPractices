@@ -4,7 +4,7 @@ layout: page
 ---
 
 
-It's very easy to contribute to the database of good practices.
+It's very easy to contribute to the database of good practices. All contributions are welcome, typo fix on the content, code cleaning in the example, CSS cleaning, adding a new language for a good practice or add a good practice, there is always something you conbitute to!
 
 # File architecture
 

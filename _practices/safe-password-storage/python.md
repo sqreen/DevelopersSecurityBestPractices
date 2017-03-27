@@ -98,6 +98,12 @@ All these good practices have the objective to slow down an hacker that would ha
 
 And don't remember, don't write your own hashing function or compose them without knowing. No `md5(md5('password') + 's')` is not inherently safer.
 
+Here is an graph of cracking time per algorithms:
+
+<iframe width="1312" height="811" seamless frameborder="0" scrolling="no" src="https://docs.google.com/a/sqreen.io/spreadsheets/d/1FGSnq-XKSsDLobCcKHXrVp06dDMQ5CrK9iBtcK-OYd0/pubchart?oid=1761889554&amp;format=interactive"></iframe>
+
+This image has been generated from this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1FGSnq-XKSsDLobCcKHXrVp06dDMQ5CrK9iBtcK-OYd0/edit#gid=0).
+
 # Not vulnerable code
 
 If you are using Django, just follow the [Django tutorial](https://docs.djangoproject.com/en/1.10/topics/auth/passwords/) and use standard Django password hashers.

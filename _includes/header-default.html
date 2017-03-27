@@ -15,7 +15,7 @@
 
                 {% for page in site.pages %}
                     {% if page.language %}
-                        <a data-scroll href="{{ page.url | prepend: site.baseurl }}"><i class="icon-{{page.language}}"></i> {{ page.title }}</a>
+                        <a data-scroll href="{{ page.url | prepend: site.baseurl }}"><i class="fa fa-fw icon-{{page.language}}"></i> {{ page.title }}</a>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -24,19 +24,25 @@
         <ul class="recent">
             <p>Good practices:</p>
 
-                {% if page.language %}
-                    {% assign practices=site.practices | where:"language", page.language | sort: 'title' %}
-                {% else %}
-                    {% assign practices=site.practices | sort: 'title' %}
-                {% endif %}
+            {% if page.language %}
+                {% assign practices=site.practices | where:"language", page.language | sort: 'title' %}
+            {% else %}
+                {% assign practices=site.practices | sort: 'title' %}
+            {% endif %}
 
-                {% for post in practices %}
-                    <li>
-                        <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
-                            <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> {{ post.title }}</h2>
-                        </a>
-                    </li>
-                {% endfor %}
+            {% for post in practices %}
+                <li>
+                    <a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">
+                        <h2 class="post-title" itemprop="name"><i class="fa fa-fw icon-{{post.language}}"></i> {{ post.title }}</h2>
+                    </a>
+                </li>
+            {% endfor %}
+
+            <li>
+                <a title="contibute" href="{{ '/contribute' | prepend: site.baseurl }}">
+                        <h2 class="post-title" itemprop="name"><i class="fa fa-code fa-fw" aria-hidden="true"></i> Add a new good practice</h2>
+                </a>
+            </li>
         </ul>
 
     <p>

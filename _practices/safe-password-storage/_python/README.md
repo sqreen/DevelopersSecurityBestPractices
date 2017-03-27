@@ -4,11 +4,11 @@ It pick a random password from a wordlist named `password.list` so it's the wors
 
 Here are some examples of run with MD5, BCrypt and PBKDF2:
 
-<script type="text/javascript" src="https://asciinema.org/a/108744.js" id="asciicast-108744" async></script>
+<a href="https://asciinema.org/a/108744" target="_blank"><img src="https://asciinema.org/a/108744.png" width="1318"/></a>
 
-<script type="text/javascript" src="https://asciinema.org/a/22i2kv418lq0l1sqq2k5co0u7.js" id="asciicast-22i2kv418lq0l1sqq2k5co0u7" async></script>
+<a href="https://asciinema.org/a/108746" target="_blank"><img src="https://asciinema.org/a/108746.png" width="1318"/></a>
 
-<script type="text/javascript" src="https://asciinema.org/a/bm2khn89dv6qjb5fzspgzy7b7.js" id="asciicast-bm2khn89dv6qjb5fzspgzy7b7" async></script>
+<a href="https://asciinema.org/a/108756" target="_blank"><img src="https://asciinema.org/a/108756.png" width="1318"/></a>
 
 ### Generate some data locally
 

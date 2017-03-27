@@ -69,4 +69,3 @@ The python standard lib also provides the function [`hmac.compare_digest`](https
 
 - [http://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf](http://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf).
 - [https://codahale.com/a-lesson-in-timing-attacks/](https://codahale.com/a-lesson-in-timing-attacks/)
-- 

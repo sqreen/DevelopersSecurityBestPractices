@@ -1,0 +1,40 @@
+<header class="header-site" role="banner">
+    <div class="content">
+
+        <div class="tags">
+            <ul class="recent">
+                {% if page.language %}
+                    <p>Practices only for: {{ page.title }}</p>
+                {% else %}
+                    <p>Filter by language:</p>
+                {% endif %}
+
+                {% for page in site.pages %}
+                    {% if page.language %}
+                        <a data-scroll href="{{ page.url | prepend: site.baseurl }}"><i class="icon-{{page.language}}"></i> {{ page.title }}</a>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <ul class="recent">
+            <p>Recent practices:</p>
+
+                {% if page.language %}
+                    {% assign practices=site.practices | where:"language", page.language | sort: 'title' %}
+                {% else %}
+                    {% assign practices=site.practices | sort: 'title' %}
+                {% endif %}
+
+                {% for post in practices %}
+                    <li>
+                        <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
+                            <h2 class="post-title" itemprop="name"><i class="icon-{{post.language}}"></i> {{ post.title }}</h2>
+                        </a>
+                    </li>
+                {% endfor %}
+        </ul>
+
+    </div>
+    {% include menu-search.html %}
+</header>

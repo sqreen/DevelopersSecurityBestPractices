@@ -1,24 +1,20 @@
----
-layout: default
----
-<article class="post">
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% include head.html %}
+    <body>
+        {% include svg-icons.html %}
+        {% include header-post.html %}
+        {% include tree-posts.html %}
+        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
-  </header>
+            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
+                {{ content }}
+            </article>
 
-  {% assign posts=site.practices | where:"title", page.title | sort: 'language' %}
-  <div class="variants">
-    <lu>
-        {% for post in posts %}
-            <li><a href="{{ post.url }}" class="{{ post.language }}"><i class="icon-{{post.language}}"></i> {{ post.language }}</a></li>
-        {% endfor %}
-        <li><a href="/contribute.html">Add your language</a></li>
-    </lu>
-  </div>
-
-  <div class="post-content">
-    {{ content }}
-  </div>
-
-</article>
+            {% include share.html %}
+            {% include footer.html %}
+            {% include scripts.html %}
+        </section>
+    </body>
+</html>

@@ -7,15 +7,9 @@
 
         <div class="tags">
             <ul class="recent">
-                {% if page.language %}
-                    <p>Practices only for: <i class="icon-{{page.language}}"></i> {{ page.title }}</p>
-                {% else %}
-                    <p>Filter by language:</p>
-                {% endif %}
-
-                {% for page in site.pages %}
-                    {% if page.language %}
-                        <a data-scroll href="{{ page.url | prepend: site.baseurl }}"><i class="fa fa-fw icon-{{page.language}}"></i> {{ page.title }}</a>
+                {% for language_page in site.pages %}
+                    {% if language_page.language %}
+                        <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}"><i class="fa fa-fw icon-{{language_page.language}}"></i> {{ language_page.title }}</a>
                     {% endif %}
                 {% endfor %}
             </ul>

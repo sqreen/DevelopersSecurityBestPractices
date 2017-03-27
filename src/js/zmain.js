@@ -1,11 +1,4 @@
 (function( $, window, undefined ) {
-  // Menu
-  $("a#slide").click(function(){
-    $("#sidebar,a#slide,#fade").addClass("slide");
-    $("#open").hide();
-    $("#search").hide();
-    $("#close").show();
-  });
 
   $("#fade").click(function(){
     $("#sidebar,a#slide,#fade").removeClass("slide");

@@ -39,7 +39,7 @@ def str_equals(first_string, second_string):
 
 It iterates on each character of the two string and return `False` as soon as two characters are different.
 
-SCHEMA
+![String comparison](string-comparison.jpeg)
 
 The difference can feels negligible and it's indeed very small but statistics dictates that every small difference can be detected with enough measures. Moreover network jitter is more and more precisely modeled and can be removed from measures over internet. According to [one of the reference paper on the subject](http://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf), "We have shown that, even though the Internet induces significant timing jitter, we can reliably distinguish remote timing differences as low as 20µs".
 

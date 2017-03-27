@@ -5,33 +5,8 @@
 
         <h3>{{ site.description }}</h3>
 
-        {% assign practices = site.practices  %}
-        {% assign languages = practices[1].language %}
-
-        {% for practice in practices %}
-            {% unless languages contains practice.language %}
-                {% capture languages %}{{ languages }}|{{ practice.language }}{% endcapture %}
-            {% endunless %}
-        {% endfor %}
-
-        {% assign languages = languages | split: '|' %}
-
-        <div class="tags">
-            <ul class="recent">
-                {% for language in languages %}
-                    {% for language_page in site.pages %}
-
-                        {% if language_page.language == language %}
-                            <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}"><i class="fa fa-fw icon-{{language_page.language}}"></i> {{ language_page.title }}</a>
-                        {% endif %}
-
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
-
         <ul class="recent">
-            <p>Good practices:</p>
+            <h2>All Good practices:</h2>
 
             {% if page.language %}
                 {% assign practices=site.practices | where:"language", page.language | sort: 'title' %}

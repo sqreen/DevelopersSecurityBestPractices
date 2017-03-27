@@ -6,14 +6,15 @@ body
 $bg
 	background main
 	height 100%
-	.content
-		width 95%
-		align(both)
-		text-align center
 
 // Header home
 .header-site
 	@extends $bg
+	margin-left: 347px
+
+	.content
+		padding: 20px
+
 	li
 		margin 0
 		list-style-type none
@@ -42,7 +43,6 @@ $bg
 					background rgba(mainHover,0.42)
 	h1,h2,h3,p,a
 		color: sec
-		text-align center
 	.site-title
 		font-size rem(30px)
 		line-height 1
@@ -59,6 +59,17 @@ $bg
 		margin rem(30px) 0
 		+above(cut)
 			font-size rem(40px)
+
+
+.rectangle
+	display block
+	width 207px
+	border-radius 5px
+	align(h)
+	background-color #74479c
+	text-align center
+	color #ffffff
+	font-weight bold
 
 // Header Post
 .header-post

@@ -5,7 +5,7 @@ language: python
 
 Timing Attacks are a particular type of attacks that use flaws in code that impact the execution time to discover hints about secrets.
 
-# TLDR
+# TL;DR
 
 Don't use string comparison `==` when checking for secrets or token equality. Use constant-time implementations.
 

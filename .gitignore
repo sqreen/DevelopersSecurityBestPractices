@@ -1,5 +1,15 @@
+# Jekyll
 _site
 .sass-cache
 .jekyll-metadata
-*.pyc
+
+# Mac OS X
 **/.DS_Store
+
+# Python
+*.pyc
+**/__pycache__/
+
+# JS
+**/node_modules/
+**/vendor/

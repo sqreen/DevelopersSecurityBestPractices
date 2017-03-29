@@ -9,10 +9,10 @@
             <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
 
 
-            {% assign dirname = page.path | split: '/' | pop | join: '/' %}
-            <h3><a href="{{ site.github_url | append:'/tree/master/' | append:dirname | append:'/_' | append:page.language }}">All code examples are available there</a>.</h3>
-
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
+                {% assign dirname = page.path | split: '/' | pop | join: '/' %}
+                <p><a href="{{ site.github_url | append:'/tree/master/' | append:dirname | append:'/_' | append:page.language }}">All code examples are available there.</a><p>
+
                 {{ content }}
             </article>
 

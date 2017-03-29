@@ -67,7 +67,7 @@ The python standard lib also provides the function [`hmac.compare_digest`](https
 {% include_relative _python/README.md %}
 
 {% assign dirname = page.path | split: '/' | pop | join: '/' %}
-<a href="{{ site.github_url | append:'/tree/master/' | append:dirname | append:'/_' | append:page.language }}">You can play with the code located there</a>.
+<a href="{{ site.github_url | append:'/tree/master/' | append:dirname | append:'/_' | append:page.language }}">You can play with the code located there.</a>
 
 ## References:
 

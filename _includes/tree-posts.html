@@ -10,7 +10,9 @@
             <article role="article" class="post-item">
                 <div class="content">
                     <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                        <h2 class="post-title" itemprop="name"><i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ post.title }}</h2>
+
+                        {% assign humanized_language = site.languages_humanized[post.language] %}
+                        <h2 class="post-title" itemprop="name">{{ humanized_language }}</h2>
                     </a>
                 </div>
             </article>
@@ -21,7 +23,7 @@
     <article role="article" class="post-item">
         <div class="content">
             <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name"><i class="fa fa-code fa-fw" aria-hidden="true"></i> Add your language</h2>
+                <h2 class="post-title" itemprop="name">Add your language</h2>
             </a>
         </div>
     </article>

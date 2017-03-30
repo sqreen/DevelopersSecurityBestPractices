@@ -20,6 +20,24 @@ description: > # this means to ignore newlines until "baseurl:"
 url: "https://sqreen.github.io/DevelopersSecurityBestPractices/"
 github_url: "https://github.com/sqreen/DevelopersSecurityBestPractices"
 
+languages_humanized:
+  c: "C"
+  clojure: "Clojure"
+  cplusplus: "C++"
+  csharp: "C#"
+  erlang: "Erlang"
+  go: "Go"
+  haskell: "Haskell"
+  java: "Java"
+  objc: "Objective-C"
+  perl: "Perl"
+  php: "PHP"
+  python: "Python"
+  ruby: "Ruby"
+  rust: "Rust"
+  nodejs: "Node.js"
+  scala: "Scala"
+
 # Build settings
 markdown: kramdown
 exclude:

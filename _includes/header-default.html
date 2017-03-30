@@ -22,7 +22,7 @@
                     {% for language_page in site.pages %}
 
                         {% if language_page.language == language %}
-                            <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}"><i class="fa fa-fw icon-{{language_page.language}}"></i> {{ language_page.title }}</a>
+                            <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}"><i class="fa fa-fw icon-{{language_page.language}}"></i> {{ site.languages_humanized[language_page.language] }}</a>
                         {% endif %}
 
                     {% endfor %}

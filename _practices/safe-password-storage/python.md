@@ -14,10 +14,10 @@ Don't store passwords in clear-text. Don't hash passwords with MD5. Use dedicate
 It’s universally acknowledged that storing clear-text passwords is a bad idea. The recommendation is to hash them, using a cryptographically secure hashing algorithm. Here are some examples of **WHAT TO NOT DO**.
 
 ```python
-from hashlib import MD5
+from hashlib import md5
 
 def hash_password(password):
-    return MD5(password)
+    return md5(password)
 ```
 
 ```python
@@ -70,7 +70,7 @@ The crack is basically immediate, all possible passwords are precomputed, the co
 
 ## Wordlist
 
-The problem with brute-forcing passwords is that you need to have a list of "known" passwords in the first place. It's called a `wordlist` and is basically a clear-text file of passwords found in previous hacks, usually the most common ones like `123456` or `qwerty`. The problem is that most users uses these simple password or a combination of them. Security researchers estimate thatas many as [50% of passwords found in leaks are from the top 25% most common passwords in 2016](https://blog.keepersecurity.com/2017/01/13/most-common-passwords-of-2016-research-study/). Passwords crackers can also apply some mangling rules, like replacing a letter by a number `qw3rty` or mixing the case `QwErTy`. So, even with a strong hash, attackers can determine the passwords of many accounts in your system.
+The problem with brute-forcing passwords is that you need to have a list of "known" passwords in the first place. It's called a `wordlist` and is basically a clear-text file of passwords found in previous hacks, usually the most common ones like `123456` or `qwerty`. The problem is that most users uses these simple password or a combination of them. Security researchers estimate that as many as [50% of passwords found in leaks are from the top 25% most common passwords in 2016](https://blog.keepersecurity.com/2017/01/13/most-common-passwords-of-2016-research-study/). Passwords crackers can also apply some mangling rules, like replacing a letter by a number `qw3rty` or mixing the case `QwErTy`. So, even with a strong hash, attackers can determine the passwords of many accounts in your system.
 
 ## Salt
 

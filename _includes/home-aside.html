@@ -1,12 +1,12 @@
-<div class="tree-posts">
+<aside>
 
-    <h3>Codoms</h3>
+    <h1>
+        <object data="/assets/img/logo-codoms.svg" type="image/svg+xml">
+            <img src="/assets/img/logo-codoms.png" />
+        </object>
 
-    <div class="rectangle" id="add-your-language">
-        <p><a href="{{ '/contribute' | prepend: site.baseurl }}"><i class="fa fa-plus" aria-hidden="true"> Add your language</i></a></p>
-    </div>
-
-    <h3>Filter by language</h3>
+        <span>Codoms</span>
+    </h1>
 
     {% assign practices = site.practices  %}
     {% assign languages = practices[1].language %}
@@ -20,17 +20,33 @@
     {% assign languages = languages | split: '|' %}
 
     <div>
-        <ul>
+        <ul class='languages'>
+            <h2>Filter by language</h2>
             {% for language in languages %}
                 {% for language_page in site.pages %}
-
                     {% if language_page.language == language %}
-                        <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}">{{ language_page.title }}</a>
+                        <li>
+                            <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}">{{ language_page.title }}</a>
+                        </li>
                     {% endif %}
-
                 {% endfor %}
             {% endfor %}
+            <li class='contribute'>
+                <a href="{{ '/contribute' | prepend: site.baseurl }}">
+                    Add your language
+                </a>
+            </li>
         </ul>
     </div>
 
+
+    <p class='license'>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class='creativecommons'>
+            <img src="/assets/img/logo-cc.png" />
+        </a>
+
+        Made with <i class="fa fa-heart fa-fw" aria-hidden="true"></i> by
+        <a href="https://www.sqreen.io/">Sqreen</a> and the
+        <a href="{{site.github_url}}/graphs/contributors">community</a>
+    </p>
 </div>

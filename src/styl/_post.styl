@@ -1,14 +1,13 @@
 .post
     +above(rem(1450px))
-        margin-left: rem(417px)
-        max-width: rem(800px)
+        margin-left: rem(427px)
+        max-width: rem(780px)
     margin-right: rem(30px)
 
     .post-title
       font-size rem(30px)
       margin-top 0
       margin-bottom 0
-      margin-left rem(15px)
 
     .time
         text-align center
@@ -24,7 +23,7 @@
         display block
     p, h1, h2, h3, h4,ul,ol, .tags, iframe
         max-width rem(1200px)
-        padding 0 rem(20px)
+        padding 0
         margin 0 auto rem(30px)
         mainFont(300)
         font-size rem(18px)
@@ -55,6 +54,8 @@
         line-height 1.4
         font-weight normal
         color accent_color
+        margin-top rem(60px)
+
     h2
         font-size rem(26px)
         line-height 1.4
@@ -73,7 +74,7 @@
     blockquote
         border-left rem(5px) solid main
         padding 0 rem(20px)
-        margin rem(50px) rem(25px)
+        margin rem(50px) rem(20px)
         p
             color rgba(0,0,0,0.6)
             margin 0
@@ -91,7 +92,7 @@
     pre
         padding rem(20px)
     .highlighter-rouge
-      margin 0 rem(20px) rem(30px) rem(20px)
+      margin-bottom rem(30px)
     .asciicast
         padding 0 rem(20px) !important
         margin 0 auto rem(30px) !important
@@ -100,10 +101,24 @@
         padding 0 rem(20px) !important
         margin 0 auto rem(30px) !important
 .share
-    center(800px)
-    text-align center
     border-top 1px solid lightGray
     padding-top rem(20px)
+    width 100%
+    margin-bottom rem(50px)
+
+    & > div
+      display table
+
+      & > *
+        display table-cell
+        vertical-align middle
+
+    h3
+        color #9a9a9a
+        font-size rem(20px)
+        text-transform uppercase
+        font-weight normal
+        padding-right rem(20px)
     svg
         margin rem(15px)
         size(35,35)

@@ -1,12 +1,5 @@
 <aside>
-
-    <h1>
-        <object data="/assets/img/logo-codoms.svg" type="image/svg+xml">
-            <img src="/assets/img/logo-codoms.png" />
-        </object>
-
-        <span>Codoms</span>
-    </h1>
+  {% include logo.html %}
 
     {% assign practices = site.practices  %}
     {% assign languages = practices[1].language %}
@@ -40,4 +33,4 @@
     </div>
 
     {% include aside_footer.html %}
-</div>
+</aside>

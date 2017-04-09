@@ -1,12 +1,6 @@
 <aside>
+  {% include logo.html %}
 
-    <h1>
-        <object data="/assets/img/logo-codoms.svg" type="image/svg+xml">
-            <img src="/assets/img/logo-codoms.png" />
-        </object>
-
-        <span>Codoms</span>
-    </h1>
 
     {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
 
@@ -30,4 +24,6 @@
         </li>
       </ul>
     </div>
+
+    {% include aside_footer.html %}
 </aside>

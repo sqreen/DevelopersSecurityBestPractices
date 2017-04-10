@@ -1,33 +1,35 @@
-<div class="tree-posts">
+<aside>
+  {% include logo.html %}
 
-    <h3>Variants</h3>
 
-    {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
+    {% if page.language %}
 
-    {% for post in variants %}
+        {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
+        <div>
+          <ul class='languages'>
+            <h2>Variants</h2>
 
-        {% if post != page %}
-            <article role="article" class="post-item">
-                <div class="content">
-                    <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+            {% for post in variants %}
 
-                        {% assign humanized_language = site.languages_humanized[post.language] %}
-                        <h2 class="post-title" itemprop="name">{{ humanized_language }}</h2>
-                    </a>
-                </div>
-            </article>
-        {% endif %}
+                {% if post != page %}
+                    <li>
+                        <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+                            {% assign humanized_language = site.languages_humanized[post.language] %}
+                            <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ humanized_language }}
+                        </a>
+                    </li>
+                {% endif %}
 
-    {% endfor %}
+            {% endfor %}
 
-    <article role="article" class="post-item">
-        <div class="content">
-            <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name">Add your language</h2>
-            </a>
+            <li class='contribute'>
+                <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
+                    Add your language
+                </a>
+            </li>
+          </ul>
         </div>
-    </article>
+    {% endif %}
 
-
-
-</div>
+    {% include aside_footer.html %}
+</aside>

@@ -1,0 +1,38 @@
+<aside>
+  {% include logo.html %}
+
+    {% assign practices = site.practices  %}
+    {% assign languages = practices[1].language %}
+
+    {% for practice in practices %}
+        {% unless languages contains practice.language %}
+            {% capture languages %}{{ languages }}|{{ practice.language }}{% endcapture %}
+        {% endunless %}
+    {% endfor %}
+
+    {% assign languages = languages | split: '|' %}
+
+    <div>
+        <ul class='languages'>
+            <h2>Filter by language</h2>
+            {% for language in languages %}
+                {% for language_page in site.pages %}
+                    {% if language_page.language == language %}
+                        <li>
+                            <a data-scroll href="{{ language_page.url | prepend: site.url }}" class="{% if page.language == language_page.language %}selected{% endif %}">
+                              {{ site.languages_humanized[language_page.language] }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <li class='contribute'>
+                <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
+                    Add your language
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    {% include aside_footer.html %}
+</aside>

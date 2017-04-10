@@ -1,25 +1,17 @@
 .post
-    +above(rem(1450px))
-        margin-left: 347px
-    h1, h2, h3
-        &:before
-            color main
-            font-weight 300
-            margin-right 10px
-    h1
-        margin 0
-        font-size rem(30px)
-        +above(cut)
-            font-size rem(70px)
-        &:before
-            content "#"
-            color main
-            font-size rem(40px)
-    .post-title
-        text-align center
 
-        &:before
-            content ""
+    margin-left rem(400px)
+
+    +above(rem(1450px))
+        margin-left: rem(427px)
+        max-width: rem(780px)
+
+    margin-right: rem(30px)
+
+    .post-title
+      font-size rem(30px)
+      margin-top 0
+      margin-bottom 0
 
     .time
         text-align center
@@ -35,7 +27,7 @@
         display block
     p, h1, h2, h3, h4,ul,ol, .tags, iframe
         max-width rem(1200px)
-        padding 0 rem(20px)
+        padding 0
         margin 0 auto rem(30px)
         mainFont(300)
         font-size rem(18px)
@@ -43,6 +35,7 @@
         letter-spacing 0.01rem
         +above(cut)
             font-size rem(20px)
+
     p,li
         color texts
         code
@@ -53,7 +46,8 @@
         text-decoration none
         border-bottom 2px solid main
         &:hover
-            background-color mainHover
+            color accent_color
+            border-bottom-color accent_color
     iframe
         margin-top rem(30px)
         width 100%
@@ -64,21 +58,19 @@
     h1
         font-size rem(30px)
         line-height 1.4
-        +above(cut)
-            font-size rem(45px)
+        font-weight normal
+        color accent_color
+        margin-top rem(60px)
+
     h2
-        font-size rem(22px)
+        font-size rem(26px)
         line-height 1.4
-        &:before
-            content '##'
-            font-size rem(25px)
-        +above(cut)
-            font-size rem(35px)
+        font-weight bold
+
     h3
-        font-size rem(18px)
+        font-size rem(24px)
         line-height 1.4
-        +above(cut)
-            font-size rem(25px)
+
     ul,ol
         padding-left rem(40px)
     ul.post-list
@@ -86,12 +78,9 @@
         +below(cut)
             padding 0 rem(20px)
     blockquote
-        center(rem(730px))
         border-left rem(5px) solid main
-        padding 0 rem(30px)
-        margin rem(50px) auto
-        +below(cut)
-            width 70%
+        padding 0 rem(20px)
+        margin rem(50px) rem(20px)
         p
             color rgba(0,0,0,0.6)
             margin 0
@@ -107,10 +96,9 @@
         width 200px
 
     pre
-        max-width rem(1200px)
         padding rem(20px)
-        margin 0 auto rem(30px)
-
+    .highlighter-rouge
+      margin-bottom rem(30px)
     .asciicast
         padding 0 rem(20px) !important
         margin 0 auto rem(30px) !important
@@ -119,10 +107,24 @@
         padding 0 rem(20px) !important
         margin 0 auto rem(30px) !important
 .share
-    center(800px)
-    text-align center
     border-top 1px solid lightGray
     padding-top rem(20px)
+    width 100%
+    margin-bottom rem(50px)
+
+    & > div
+      display table
+
+      & > *
+        display table-cell
+        vertical-align middle
+
+    h3
+        color #9a9a9a
+        font-size rem(20px)
+        text-transform uppercase
+        font-weight normal
+        padding-right rem(20px)
     svg
         margin rem(15px)
         size(35,35)

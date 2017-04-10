@@ -3,3 +3,6 @@ _site
 .jekyll-metadata
 *.pyc
 **/.DS_Store
+node_modules
+vendor
+assets

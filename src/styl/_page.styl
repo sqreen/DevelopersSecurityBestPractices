@@ -10,7 +10,6 @@
         +above(cut)
             font-size rem(70px)
         &:before
-            content "#"
             color main
             font-size rem(40px)
     .page-title
@@ -43,6 +42,24 @@
         letter-spacing 0.01rem
         +above(cut)
             font-size rem(20px)
+
+    h1,h2,h3,h4,h5
+        mainFont(800)
+    h1
+        font-size rem(30px)
+        line-height 1.4
+        font-weight normal
+        color accent_color
+
+    h2
+        font-size rem(26px)
+        line-height 1.4
+        font-weight bold
+
+    h3
+        font-size rem(24px)
+        line-height 1.4
+
     p,li
         color texts
         code

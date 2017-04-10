@@ -1,4 +1,13 @@
 .page
+
+    margin-left rem(400px)
+
+    +above(rem(1450px))
+        margin-left: rem(427px)
+        max-width: rem(780px)
+
+    margin-right: rem(30px)
+
     h1, h2, h3
         &:before
             color main
@@ -33,7 +42,7 @@
         margin rem(30px) auto
         display block
     p, h1, h2, h3, h4,ul,ol, .tags, iframe
-        max-width 60%
+        max-width rem(1200px)
         padding 0 rem(20px)
         margin 0 auto rem(30px)
         mainFont(300)
@@ -124,9 +133,7 @@
         width 200px
 
     pre
-        max-width 60%
         padding rem(20px)
-        margin 0 auto rem(30px)
 
     .asciicast
         padding rem(20px) !important

@@ -2,32 +2,34 @@
   {% include logo.html %}
 
 
-    {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
+    {% if page.language %}
 
-    <div>
-      <ul class='languages'>
-        <h2>Variants</h2>
+        {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
+        <div>
+          <ul class='languages'>
+            <h2>Variants</h2>
 
-        {% for post in variants %}
+            {% for post in variants %}
 
-            {% if post != page %}
-                <li>
-                    <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                        {% assign humanized_language = site.languages_humanized[post.language] %}
-                        <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ humanized_language }}
-                    </a>
-                </li>
-            {% endif %}
+                {% if post != page %}
+                    <li>
+                        <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+                            {% assign humanized_language = site.languages_humanized[post.language] %}
+                            <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ humanized_language }}
+                        </a>
+                    </li>
+                {% endif %}
 
-        {% endfor %}
+            {% endfor %}
 
-        <li class='contribute'>
-            <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                Add your language
-            </a>
-        </li>
-      </ul>
-    </div>
+            <li class='contribute'>
+                <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
+                    Add your language
+                </a>
+            </li>
+          </ul>
+        </div>
+    {% endif %}
 
     {% include aside_footer.html %}
 </aside>

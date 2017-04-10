@@ -1,33 +1,29 @@
-<div class="tree-posts">
+<aside>
+  {% include logo.html %}
 
-    <h3>Variants</h3>
 
     {% assign variants=site.practices | where:"title", page.title | sort: 'language' %}
 
-    {% for post in variants %}
+    <div>
+      <ul class='languages'>
+        <h2>Variants</h2>
+
 
         {% if post != page %}
-            <article role="article" class="post-item">
-                <div class="content">
-                    <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-
-                        {% assign humanized_language = site.languages_humanized[post.language] %}
-                        <h2 class="post-title" itemprop="name">{{ humanized_language }}</h2>
-                    </a>
-                </div>
-            </article>
+            <li>
+                <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+                    <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ post.title }}
+                </a>
+            </li>
         {% endif %}
 
-    {% endfor %}
-
-    <article role="article" class="post-item">
-        <div class="content">
+        <li class='contribute'>
             <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name">Add your language</h2>
+                Add your language
             </a>
-        </div>
-    </article>
+        </li>
+      </ul>
+    </div>
 
-
-
-</div>
+    {% include aside_footer.html %}
+</aside>

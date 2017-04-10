@@ -11,11 +11,15 @@
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
                 {{ content }}
 
-                <p><a href="{{ site.github_url }}/edit/master/{{ page.relative_path }}"><i class="fa fa-github" aria-hidden="true"></i> Edit this page on Github</a></p>
+                <p>
+                  <a href="{{ site.github_url }}/edit/master/{{ page.relative_path }}">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    Edit this page on Github
+                  </a>
+                </p>
             </article>
 
             {% include share.html %}
-            {% include footer.html %}
             {% include scripts.html %}
         </section>
     </body>

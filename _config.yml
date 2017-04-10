@@ -45,7 +45,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
-  - src
   - node_modules
   - vendor
 collections:

@@ -3,7 +3,10 @@
     {% include head.html %}
     <body>
         {% include svg-icons.html %}
-        {% include header-post.html %}
+
+        <header class="header-post">
+        </header>
+
         {% include tree-posts.html %}
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <h1 class="post-title" itemprop="name">{{ page.title }}</h1>

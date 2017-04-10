@@ -8,14 +8,18 @@
       <ul class='languages'>
         <h2>Variants</h2>
 
+        {% for post in variants %}
 
-        {% if post != page %}
-            <li>
-                <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                    <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ post.title }}
-                </a>
-            </li>
-        {% endif %}
+            {% if post != page %}
+                <li>
+                    <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
+                        {% assign humanized_language = site.languages_humanized[post.language] %}
+                        <i class="fa fa-fw icon-{{post.language}}" aria-hidden="true"></i> {{ humanized_language }}
+                    </a>
+                </li>
+            {% endif %}
+
+        {% endfor %}
 
         <li class='contribute'>
             <a title="Contribute" href="{{ '/contribute' | prepend: site.baseurl }}">

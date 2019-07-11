@@ -13,13 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Security Best Practices for Developers
+title: Developers Security Best Practices
 description: > # this means to ignore newlines until "baseurl:"
-  A bullshit-free, developer-friendly, open-source reference of security best practices.
-  
-baseurl: /SecurityBestPracticesforDevelopers
-url: "https://sqreen.github.io/SecurityBestPracticesforDevelopers/"
-github_url: "https://github.com/sqreen/SecurityBestPracticesforDevelopers"
+  'Developers Security Best Practices' is a bullshit-free, developers friendly, open-source reference of best practices
+  for avoiding vulnerabilities.
+baseurl: /DevelopersSecurityBestPractices
+url: "https://sqreen.github.io/DevelopersSecurityBestPractices/"
+github_url: "https://github.com/sqreen/DevelopersSecurityBestPractices"
 
 languages_humanized:
   c: "C"

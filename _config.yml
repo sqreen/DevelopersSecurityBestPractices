@@ -13,12 +13,31 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Code Condoms
+title: Developers Security Best Practices
 description: > # this means to ignore newlines until "baseurl:"
-  Code Condoms is a bullshit-free, developers friendly, open-source reference of best practices
+  'Developers Security Best Practices' is a bullshit-free, developers friendly, open-source reference of best practices
   for avoiding vulnerabilities.
+baseurl: /DevelopersSecurityBestPractices
 url: "https://sqreen.github.io/DevelopersSecurityBestPractices/"
 github_url: "https://github.com/sqreen/DevelopersSecurityBestPractices"
+
+languages_humanized:
+  c: "C"
+  clojure: "Clojure"
+  cplusplus: "C++"
+  csharp: "C#"
+  erlang: "Erlang"
+  go: "Go"
+  haskell: "Haskell"
+  java: "Java"
+  objc: "Objective-C"
+  perl: "Perl"
+  php: "PHP"
+  python: "Python"
+  ruby: "Ruby"
+  rust: "Rust"
+  nodejs: "Node.js"
+  scala: "Scala"
 
 # Build settings
 markdown: kramdown
@@ -26,7 +45,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
-  - src
   - node_modules
   - vendor
 collections:

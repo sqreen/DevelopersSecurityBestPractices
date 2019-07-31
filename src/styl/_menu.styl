@@ -21,14 +21,14 @@ a.slideButton, .dosearch
     left 10px
 .dosearch
     right 10px
-    background darken(blackBase,10%)
+    background accent_color
     border-radius rem(3px)
     padding rem(2px) rem(3px)
 .icon-menu
     cursor pointer
     padding rem(5px)
     border-radius rem(3px)
-    background darken(blackBase,10%)
+    background accent_color
     width rem(40px)
     height rem(40px)
     fill sec
@@ -42,102 +42,72 @@ a.slideButton, .dosearch
 #close
     display none
 
-aside
+body > aside
+    padding rem(43px)
+    width rem(347px)
+    height 100%
     position fixed
-    height 163px
-    width 100%
-    bottom -100%
-    background blackBase
-    z-index 20
-    box-shadow inset -10px -1px 15px -9px rgba(0,0,0,0.5)
-    li
-        margin 0
-        list-style-type none
-    ul
-        margin 0
-        padding 0
-    #topmenu
-        background-color main
-        border 2px solid main
-        cf()
-        ul
-            col(1.3/2)
-            +below(1000px)
-                col(2/2)
-            &:nth-child(2)
-                col(.7/2)
-                display none
-                text-align right
-                li
-                    &:first-child
-                        background transparent
-                        span
-                            background transparent
-                            border-radius 0
-                            color white
-                            width 45px
-                    &:nth-child(2)
-                        padding-left 20px
-                        padding-right 20px
-                    &:nth-child(3)
-                        margin-right -10px
-                        padding-left 10px
-                +above(1000px)
-                    display block
-            li
-                transform skewx(-20deg)
-                padding 3px 4px 6px 4px
-                background blackBase
-                display inline-block
-                // margin-left -5px
-                &:first-child
-                    background #EFB102
-                    padding 4px 10px 4px 20px
-                    margin-left -10px
-                    span
-                        border-radius 100%
-                        size(20, 20)
-                        text-align center
-                        background-color black
-                        color #EFB102
-                        font-weight 300
-                &:nth-child(3)
-                    background mainLight
-                    padding-right 30px
-                    padding-left 30px
-                    span
-                        color white
-                span
-                    transform skewx(20deg)
-                    display block
-                    mainFont(800)
-                    font-size rem(13px)
-                    color mainLight
-                &:nth-child(3),
-                &:nth-child(4)
-                    +below(cut)
-                        display none
-    nav
-        ul
-            padding 10px 0 0 10px
-            float left
-            margin-right 80px
-            // clear both
-            .counter-menu
-                color mainLight
-                font-weight 800
-                margin-right 4px
-            a
-                width 100%
-                cursor pointer
-                text-decoration none
-                mainFont(300)
-                color #b3b3b1
-                &:hover
-                    background mainHover
-    &.slide
-        bottom 0
+    background-color aside_color
+    overflow-y auto
+    top 0
 
+    a
+      text-decoration none
+
+    h1
+        text-transform uppercase
+        font-size rem(26px)
+        display table
+
+        & > *
+            display table-cell
+            vertical-align middle
+
+        & > object
+            margin-right rem(10px)
+
+    p.license
+        position fixed
+        bottom rem(40px)
+        color lightGray
+        width rem(200px)
+
+        .creativecommons
+            display block
+            margin-bottom rem(20px)
+        i.fa-heart
+            color: #ee7373
+
+        a
+            color lightGray
+            text-decoration none
+            &:hover
+                color accent_color
+
+    ul.languages
+        list-style none
+        margin-left 0
+        padding-left 0
+        margin-top rem(40px)
+
+        h2
+            color #9a9a9a
+            font-size rem(14px)
+            text-transform uppercase
+            font-weight bold
+
+        li
+            line-height rem(30px)
+        a
+            text-decoration none
+            color lightGray
+            &.selected
+              color gray
+
+        li.contribute
+            margin-top rem(10px)
+            a
+                color accent_color
 
 a.slideButton.slide
     pointer-events none

@@ -1,37 +1,10 @@
-<header class="header-site" role="banner">
+<main>
     <div class="content">
 
-        <h1>"Code like hell and you will be there"</h1>
-
-        <h3>{{ site.description }}</h3>
-
-        {% assign practices = site.practices  %}
-        {% assign languages = practices[1].language %}
-
-        {% for practice in practices %}
-            {% unless languages contains practice.language %}
-                {% capture languages %}{{ languages }}|{{ practice.language }}{% endcapture %}
-            {% endunless %}
-        {% endfor %}
-
-        {% assign languages = languages | split: '|' %}
-
-        <div class="tags">
-            <ul class="recent">
-                {% for language in languages %}
-                    {% for language_page in site.pages %}
-
-                        {% if language_page.language == language %}
-                            <a data-scroll href="{{ language_page.url | prepend: site.baseurl }}" class="{% if page.language == language_page.language %}selected{% endif %}"><i class="fa fa-fw icon-{{language_page.language}}"></i> {{ language_page.title }}</a>
-                        {% endif %}
-
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
+        <h3 class='heroe'>{{ site.description }}</h3>
 
         <ul class="recent">
-            <p>Good practices:</p>
+            <h2>All Good practices:</h2>
 
             {% if page.language %}
                 {% assign practices=site.practices | where:"language", page.language | sort: 'title' %}
@@ -42,24 +15,18 @@
             {% for post in practices %}
                 <li>
                     <a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">
-                        <h2 class="post-title" itemprop="name"><i class="fa fa-fw icon-{{post.language}}"></i> {{ post.title }}</h2>
+                        <h4 class="post-title" itemprop="name"><i class="fa fa-fw fa-lg icon-{{post.language}}"></i> {{ post.title }}</h3>
                     </a>
                 </li>
             {% endfor %}
 
             <li>
                 <a title="contibute" href="{{ '/contribute' | prepend: site.baseurl }}">
-                        <h2 class="post-title" itemprop="name"><i class="fa fa-code fa-fw" aria-hidden="true"></i> Add a new good practice</h2>
+                        <h2 class="post-title" itemprop="name"><i class="fa fa-code fa-fw fa-lg" aria-hidden="true"></i> Add a new good practice</h2>
                 </a>
             </li>
         </ul>
 
-    <p>
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a><br/>
-        <p>Made with <i class="fa fa-heart fa-fw" aria-hidden="true"></i> by <a href="https://www.sqreen.io/">Sqreen</a> and the <a href="{{site.github_url}}/graphs/contributors">community</a></p>
-        <p><a href="https://github.com/victorvoid/space-jekyll-template">Jekyll Theme</a> by <a href="https://github.com/victorvoid">victorvoid</a></p>
-    </p>
-
     </div>
-    {% include menu-search.html %}
-</header>
+</main>
+{% include menu-search.html %}

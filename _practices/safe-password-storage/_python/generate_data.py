@@ -31,7 +31,8 @@ class MD5Hasher(object):
 
     def encode(self, password):
         if self.salt is None:
-            return hashlib.md5(password).hexdigest()
+            # Added encode() to handle TypeError: Unicode-objects must be encoded before hashing
+            return hashlib.md5(password.encode()).hexdigest()
         elif self.salt == 'same':
             salt = self.global_salt
         elif self.salt == 'user':
@@ -67,7 +68,8 @@ class BCryptHasher(object):
             raise NotImplementedError("BCRYPT NEEDS A SALT MORON")
 
         self.salt = salt
-        self.pepper = pepper
+        # Added encode() to handle TypeError: can only concatenate str (not "bytes") to str
+        self.pepper = pepper.encode()
 
     def encode(self, password):
         if self.salt == 'same':
